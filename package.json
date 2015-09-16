@@ -1,0 +1,23 @@
+{
+  "name": "splash-react-wysiwyg-editor",
+  "version": "1.0.0",
+  "description": "React WYSIWYG Component",
+  "main": "EditableDiv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Splash-Inc/splash-react-wysiwyg-editor.git"
+  },
+  "keywords": [
+    "react",
+    "wysiwyg"
+  ],
+  "author": "Splash Inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Splash-Inc/splash-react-wysiwyg-editor/issues"
+  },
+  "homepage": "https://github.com/Splash-Inc/splash-react-wysiwyg-editor"
+}
