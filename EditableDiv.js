@@ -11,7 +11,6 @@ module.exports = React.createClass({
   },
 
   getInitialState: function() {
-    // this is anti-pattern but we treat this.props.content as initial content
     return {html: this.props.content};
   },
 
@@ -67,7 +66,7 @@ module.exports = React.createClass({
               type: "button", "data-toggle": "dropdown", 
               onClick: this.toggleDropdown.bind(this, "dropdown-1"),
               "aria-expanded": "true"}, 
-              React.createElement("i", {className: "fa fa-paragraph"}), " ", React.createElement("i", {className: "fa fa-caret-down"})
+              React.createElement("i", {className: "glyphicon glyphicon-font"}), " ", React.createElement("i", {className: "glyphicon glyphicon-chevron-down"})
             ), 
             React.createElement("ul", {className: "dropdown-menu", role: "menu"}, 
               React.createElement("li", null, 
@@ -101,16 +100,16 @@ module.exports = React.createClass({
 
           React.createElement("div", {className: "btn-group btn-group-xs", role: "group", style: buttonSpacing}, 
             React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'bold')}, 
-              React.createElement("i", {className: "fa fa-bold"})
+              React.createElement("i", {className: "glyphicon glyphicon-bold"})
             ), 
             React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'italic')}, 
-              React.createElement("i", {className: "fa fa-italic"})
+              React.createElement("i", {className: "glyphicon glyphicon-italic"})
             ), 
             React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'underline')}, 
-              React.createElement("i", {className: "fa fa-underline"})
+              React.createElement("i", {className: "glyphicon glyphicon-text-color"})
             ), 
             React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'strikeThrough')}, 
-              React.createElement("i", {className: "fa fa-strikethrough"})
+              React.createElement("i", {className: "glyphicon glyphicon-text-width"})
             ), 
 
             React.createElement("div", {className: "btn-group", ref: "dropdown-2", role: "group"}, 
@@ -119,7 +118,7 @@ module.exports = React.createClass({
                 onClick: this.toggleDropdown.bind(this, "dropdown-2"),
                 type: "button", "data-toggle": "dropdown", 
                 "aria-expanded": "true"}, 
-                React.createElement("i", {className: "fa fa-text-height"}), " ", React.createElement("i", {className: "fa fa-caret-down"})
+                React.createElement("i", {className: "glyphicon glyphicon-text-height"}), " ", React.createElement("i", {className: "glyphicon glyphicon-chevron-down"})
               ), 
               React.createElement("ul", {className: "dropdown-menu", role: "menu"}, 
                 React.createElement("li", null, 
@@ -149,10 +148,10 @@ module.exports = React.createClass({
 
           React.createElement("div", {className: "btn-group btn-group-xs", role: "group", style: buttonSpacing}, 
             React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'insertOrderedList')}, 
-              React.createElement("i", {className: "fa fa-list-ol"})
+              React.createElement("i", {className: "glyphicon glyphicon-th-list"})
             ), 
             React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'insertUnorderedList')}, 
-              React.createElement("i", {className: "fa fa-list-ul"})
+              React.createElement("i", {className: "glyphicon glyphicon-list"})
             )
           ), 
 
@@ -163,7 +162,7 @@ module.exports = React.createClass({
               onClick: this.toggleDropdown.bind(this, "dropdown-3"),
               "data-toggle": "dropdown", 
               "aria-expanded": "false"}, 
-              React.createElement("i", {className: "fa fa-align-left"}), " ", React.createElement("i", {className: "fa fa-caret-down"})             
+              React.createElement("i", {className: "glyphicon glyphicon-align-left"}), " ", React.createElement("i", {className: "glyphicon glyphicon-chevron-down"})             
             ), 
             React.createElement("ul", {className: "dropdown-menu", role: "menu"}, 
               React.createElement("li", null, 
@@ -185,7 +184,7 @@ module.exports = React.createClass({
             type: "button", 
             className: "btn btn-default btn-xs", 
             onClick: this.execCommand.bind(this, 'removeFormat')}, 
-            React.createElement("i", {className: "fa fa-eraser"})
+            React.createElement("i", {className: "glyphicon glyphicon-erase"})
           )
         ), 
 

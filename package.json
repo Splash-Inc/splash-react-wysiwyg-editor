@@ -1,6 +1,6 @@
 {
   "name": "splash-react-wysiwyg-editor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React WYSIWYG Component",
   "main": "EditableDiv.js",
   "scripts": {
