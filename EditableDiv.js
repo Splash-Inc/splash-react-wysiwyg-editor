@@ -1,3 +1,6 @@
+/*jshint scripturl:true*/
+/*globals require, module, document, console*/
+(function() {
 'use strict';
 
 var React = require('react');
@@ -44,6 +47,14 @@ module.exports = React.createClass({
     React.findDOMNode(this.refs["dropdown-3"]).classList.remove('open');
   },
 
+  createLink: function() {
+    var url = prompt("Url:");
+
+    if (url) {
+      this.execCommand('createLink', url);
+    }
+  },
+
   toggleDropdown: function(target_ref, e) {
     console.log(target_ref);
     React.findDOMNode(this.refs[target_ref]).classList.toggle('open');
@@ -55,147 +66,156 @@ module.exports = React.createClass({
       toolbarStyle = {marginBottom: 3};
 
     return (
-      React.createElement("div", null, 
-        React.createElement("div", {style: toolbarStyle}, 
+      React.createElement("div", null,
+        React.createElement("div", {style: toolbarStyle},
 
-          /** feel free to customize buttons below. 
+          /** feel free to customize buttons below.
           for list of supported commands, please see https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand */
-          React.createElement("div", {className: "btn-group", ref: "dropdown-1", style: buttonSpacing}, 
+          React.createElement("div", {className: "btn-group", ref: "dropdown-1", style: buttonSpacing},
             React.createElement("button", {
-              className: "btn btn-default btn-xs dropdown-toggle", 
-              type: "button", "data-toggle": "dropdown", 
+              className: "btn btn-default btn-xs dropdown-toggle",
+              type: "button", "data-toggle": "dropdown",
               onClick: this.toggleDropdown.bind(this, "dropdown-1"),
-              "aria-expanded": "true"}, 
+              "aria-expanded": "true"},
               React.createElement("i", {className: "glyphicon glyphicon-font"}), " ", React.createElement("i", {className: "glyphicon glyphicon-chevron-down"})
-            ), 
-            React.createElement("ul", {className: "dropdown-menu", role: "menu"}, 
-              React.createElement("li", null, 
-                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'P')}, 
+            ),
+            React.createElement("ul", {className: "dropdown-menu", role: "menu"},
+              React.createElement("li", null,
+                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'P')},
                   "Paragraph"
-                ), 
-                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'BLOCKQUOTE')}, 
+                ),
+                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'BLOCKQUOTE')},
                   "Block Quote"
-                ), 
-                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H1')}, 
+                ),
+                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H1')},
                   "Header 1"
-                ), 
-                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H2')}, 
+                ),
+                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H2')},
                   "Header 2"
-                ), 
-                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H3')}, 
+                ),
+                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H3')},
                   "Header 3"
-                ), 
-                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H4')}, 
+                ),
+                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H4')},
                   "Header 4"
-                ), 
-                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H5')}, 
+                ),
+                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H5')},
                   "Header 5"
-                ), 
-                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H6')}, 
+                ),
+                React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'formatBlock', 'H6')},
                   "Header 6"
                 )
               )
             )
-          ), 
+          ),
 
-          React.createElement("div", {className: "btn-group btn-group-xs", role: "group", style: buttonSpacing}, 
-            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'bold')}, 
+          React.createElement("div", {className: "btn-group btn-group-xs", role: "group", style: buttonSpacing},
+            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'bold')},
               React.createElement("i", {className: "glyphicon glyphicon-bold"})
-            ), 
-            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'italic')}, 
+            ),
+            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'italic')},
               React.createElement("i", {className: "glyphicon glyphicon-italic"})
-            ), 
-            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'underline')}, 
+            ),
+            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'underline')},
               React.createElement("i", {className: "glyphicon glyphicon-text-color"})
-            ), 
-            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'strikeThrough')}, 
+            ),
+            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'strikeThrough')},
               React.createElement("i", {className: "glyphicon glyphicon-text-width"})
-            ), 
+            ),
 
-            React.createElement("div", {className: "btn-group", ref: "dropdown-2", role: "group"}, 
+            React.createElement("div", {className: "btn-group", ref: "dropdown-2", role: "group"},
               React.createElement("button", {
-                className: "btn btn-default btn-xs dropdown-toggle", 
+                className: "btn btn-default btn-xs dropdown-toggle",
                 onClick: this.toggleDropdown.bind(this, "dropdown-2"),
-                type: "button", "data-toggle": "dropdown", 
-                "aria-expanded": "true"}, 
+                type: "button", "data-toggle": "dropdown",
+                "aria-expanded": "true"},
                 React.createElement("i", {className: "glyphicon glyphicon-text-height"}), " ", React.createElement("i", {className: "glyphicon glyphicon-chevron-down"})
-              ), 
-              React.createElement("ul", {className: "dropdown-menu", role: "menu"}, 
-                React.createElement("li", null, 
+              ),
+              React.createElement("ul", {className: "dropdown-menu", role: "menu"},
+                React.createElement("li", null,
                   React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'fontSize', 1)}, "1")
-                ), 
-                React.createElement("li", null, 
+                ),
+                React.createElement("li", null,
                   React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'fontSize', 2)}, "2")
-                ), 
-                React.createElement("li", null, 
+                ),
+                React.createElement("li", null,
                   React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'fontSize', 3)}, "3")
-                ), 
-                React.createElement("li", null, 
+                ),
+                React.createElement("li", null,
                   React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'fontSize', 4)}, "4")
-                ), 
-                React.createElement("li", null, 
+                ),
+                React.createElement("li", null,
                   React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'fontSize', 5)}, "5")
-                ), 
-                React.createElement("li", null, 
+                ),
+                React.createElement("li", null,
                   React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'fontSize', 6)}, "6")
-                ), 
-                React.createElement("li", null, 
+                ),
+                React.createElement("li", null,
                   React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'fontSize', 7)}, "7")
                 )
               )
             )
-          ), 
+          ),
 
-          React.createElement("div", {className: "btn-group btn-group-xs", role: "group", style: buttonSpacing}, 
-            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'insertOrderedList')}, 
+          React.createElement("div", {className: "btn-group btn-group-xs", role: "group", style: buttonSpacing},
+            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'insertOrderedList')},
               React.createElement("i", {className: "glyphicon glyphicon-th-list"})
-            ), 
-            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'insertUnorderedList')}, 
+            ),
+            React.createElement("button", {type: "button", className: "btn btn-default", onClick: this.execCommand.bind(this, 'insertUnorderedList')},
               React.createElement("i", {className: "glyphicon glyphicon-list"})
             )
-          ), 
+          ),
 
-          React.createElement("div", {className: "btn-group", ref: "dropdown-3", style: buttonSpacing}, 
+          React.createElement("div", {className: "btn-group", ref: "dropdown-3", style: buttonSpacing},
             React.createElement("button", {
-              className: "btn btn-default btn-xs dropdown-toggle", 
+              className: "btn btn-default btn-xs dropdown-toggle",
               type: "button",
               onClick: this.toggleDropdown.bind(this, "dropdown-3"),
-              "data-toggle": "dropdown", 
-              "aria-expanded": "false"}, 
-              React.createElement("i", {className: "glyphicon glyphicon-align-left"}), " ", React.createElement("i", {className: "glyphicon glyphicon-chevron-down"})             
-            ), 
-            React.createElement("ul", {className: "dropdown-menu", role: "menu"}, 
-              React.createElement("li", null, 
+              "data-toggle": "dropdown",
+              "aria-expanded": "false"},
+              React.createElement("i", {className: "glyphicon glyphicon-align-left"}), " ", React.createElement("i", {className: "glyphicon glyphicon-chevron-down"})
+            ),
+            React.createElement("ul", {className: "dropdown-menu", role: "menu"},
+              React.createElement("li", null,
                 React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'justifyLeft')}, "Align Left")
-              ), 
-              React.createElement("li", null, 
+              ),
+              React.createElement("li", null,
                 React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'justifyRight')}, "Align Right")
-              ), 
-              React.createElement("li", null, 
+              ),
+              React.createElement("li", null,
                 React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'justifyCenter')}, "Align Center")
-              ), 
-              React.createElement("li", null, 
+              ),
+              React.createElement("li", null,
                 React.createElement("a", {href: "javascript:;", onClick: this.execCommand.bind(this, 'justifyFull')}, "Align Justify")
               )
             )
-          ), 
+          ),
 
           React.createElement("button", {
-            type: "button", 
-            className: "btn btn-default btn-xs", 
-            onClick: this.execCommand.bind(this, 'removeFormat')}, 
+            type: "button",
+            className: "btn btn-default btn-xs",
+            onClick: this.createLink.bind(this)},
+            React.createElement("i", {className: "glyphicon glyphicon-link"})
+          ),
+
+          React.createElement("button", {
+            type: "button",
+            className: "btn btn-default btn-xs",
+            onClick: this.execCommand.bind(this, 'removeFormat')},
             React.createElement("i", {className: "glyphicon glyphicon-erase"})
           )
-        ), 
+        ),
 
         React.createElement("div", React.__spread({
-          ref: "editor", 
-          className: "form-control"}, 
-          this.props, 
-          {contentEditable: "true", 
-          dangerouslySetInnerHTML: {__html: this.state.html}, 
+          ref: "editor",
+          className: "form-control"},
+          this.props,
+          {contentEditable: "true",
+          dangerouslySetInnerHTML: {__html: this.state.html},
           onInput: this.emitChange}))
       )
     );
   }
 });
+
+}());
